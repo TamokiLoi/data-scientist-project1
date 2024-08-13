@@ -1,0 +1,6 @@
+# Ignore data
+survey_results_public.csv
+survey_results_schema.csv
+
+# Jupyter notebook
+.ipynb_checkpoints
