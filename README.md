@@ -40,7 +40,7 @@ The main findings from the analysis include:
     - Experience and Salary: How years of coding experience relate to annual salary.
     - Job Satisfaction: Variations in job satisfaction across different developer roles.
 
-For a detailed explanation of the results and visualizations, please refer to the blog post available `https://tamokiloi.github.io/`
+For a detailed explanation of the results and visualizations, please refer to the blog post available [here](https://tamokiloi.github.io/).
 
 ## Licensing, Authors, and Acknowledgements <a name="licensing"></a>
 Data for this project is sourced from Stack Overflow’s 2023 Developer Survey. Credit goes to Stack Overflow for providing the data.
