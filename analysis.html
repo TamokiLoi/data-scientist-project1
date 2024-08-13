@@ -7482,7 +7482,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Stack-Overflow-Developer-Survey-2023---Data-Analysis">Stack Overflow Developer Survey 2023 - Data Analysis<a class="anchor-link" href="#Stack-Overflow-Developer-Survey-2023---Data-Analysis">¶</a></h1><p><img alt="No description has been provided for this image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS1mvZ_iIRrWl08VZ-vxCwApQItiV7KX1RTrldjflujvWI2_cb-w"/></p>
+<h1 id="Stack-Overflow-Developer-Survey-2023---Data-Analysis">Stack Overflow Developer Survey 2023 - Data Analysis<a class="anchor-link" href="#Stack-Overflow-Developer-Survey-2023---Data-Analysis">¶</a></h1><img alt="No description has been provided for this image" height="auto" src="https://survey.stackoverflow.co/2023/up_/src/img/dev-survey-2023.png" width="600"/>
 <h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h2><ol>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#questions-to-explore">Questions to Explore</a></li>
@@ -7540,7 +7540,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import necessary libraries</span>
@@ -7548,18 +7548,20 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
+<span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load the dataset from the specified CSV file.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    filepath (str): The path to the CSV file containing the survey data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    DataFrame: A pandas DataFrame containing the loaded data.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+
 <span class="c1"># Load the dataset</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'survey_results_public.csv'</span><span class="p">)</span>
-
-<span class="c1"># Filter relevant columns for job roles and salary</span>
-<span class="n">job_salary_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'DevType'</span><span class="p">,</span> <span class="s1">'ConvertedCompYearly'</span><span class="p">]</span>
-<span class="n">df_job_salary</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">job_salary_columns</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-
-<span class="c1"># Explode DevType if there are multiple job types in a single entry</span>
-<span class="n">df_job_salary</span><span class="p">[</span><span class="s1">'DevType'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_job_salary</span><span class="p">[</span><span class="s1">'DevType'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">)</span>
-<span class="n">df_exploded</span> <span class="o">=</span> <span class="n">df_job_salary</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">'DevType'</span><span class="p">)</span>
-
-<span class="c1"># Preview the dataset to understand its structure</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="s1">'survey_results_public.csv'</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7571,7 +7573,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7743,6 +7745,98 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_job_salary_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Preprocess the job roles and salary data by filtering and exploding the DevType column.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (DataFrame): The original DataFrame containing the survey data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    DataFrame: A DataFrame with job roles exploded and filtered for salary data.</span>
+<span class="sd">    """</span>
+    <span class="n">df_job_salary</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'DevType'</span><span class="p">,</span> <span class="s1">'ConvertedCompYearly'</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">df_job_salary</span><span class="p">[</span><span class="s1">'DevType'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_job_salary</span><span class="p">[</span><span class="s1">'DevType'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_job_salary</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">'DevType'</span><span class="p">)</span>
+
+<span class="c1"># Preprocess the dataset by filtering relevant columns for job roles and salary, and exploding the 'DevType' column</span>
+<span class="n">df_exploded</span> <span class="o">=</span> <span class="n">preprocess_job_salary_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df_exploded</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>DevType</th>
+<th>ConvertedCompYearly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1</th>
+<td>Senior Executive (C-Suite, VP, etc.)</td>
+<td>285000.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Developer, back-end</td>
+<td>250000.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Developer, front-end</td>
+<td>156000.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Developer, full-stack</td>
+<td>23456.0</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Developer, back-end</td>
+<td>96828.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7759,23 +7853,31 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [91]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate the mean salary for each job role</span>
-<span class="n">mean_salaries</span> <span class="o">=</span> <span class="n">df_exploded</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'DevType'</span><span class="p">)[</span><span class="s1">'ConvertedCompYearly'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_mean_salaries_by_role</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Plot the mean salaries for each job role.</span>
 
-<span class="c1"># Sort the roles by mean salary for better visualization</span>
-<span class="n">mean_salaries</span> <span class="o">=</span> <span class="n">mean_salaries</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'ConvertedCompYearly'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (DataFrame): The DataFrame containing exploded job roles and salaries.</span>
 
-<span class="c1"># Create a bar plot for mean salaries by job role without palette</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">mean_salaries</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'DevType'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'ConvertedCompYearly'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Average Salary by Job Role'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Job Role'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Average Annual Salary (USD)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'right'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    None</span>
+<span class="sd">    """</span>
+    <span class="n">mean_salaries</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'DevType'</span><span class="p">)[</span><span class="s1">'ConvertedCompYearly'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">mean_salaries</span> <span class="o">=</span> <span class="n">mean_salaries</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'ConvertedCompYearly'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">mean_salaries</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'DevType'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'ConvertedCompYearly'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Average Salary by Job Role'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Job Role'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Average Annual Salary (USD)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'right'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_mean_salaries_by_role</span><span class="p">(</span><span class="n">df_exploded</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7809,39 +7911,66 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [87]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_experience_salary_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Preprocess the experience and salary data by converting 'YearsCode' to numeric and binning the years.</span>
 
-<span class="c1"># Convert 'YearsCode' to numeric, forcing errors to NaN</span>
-<span class="n">df_experience_salary</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df_experience_salary</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (DataFrame): The original DataFrame containing the survey data.</span>
 
-<span class="c1"># Drop rows with missing or invalid 'YearsCode' values</span>
-<span class="n">df_experience_salary</span> <span class="o">=</span> <span class="n">df_experience_salary</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">])</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    DataFrame: A DataFrame with experience years binned and mean salaries calculated for each bin.</span>
+<span class="sd">    """</span>
+    <span class="c1"># Create a copy of the DataFrame to avoid modifying the original DataFrame</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="c1"># Ensure 'YearsCode' is numeric, creating a new column or modifying the original</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'coerce'</span><span class="p">)</span>
+    
+    <span class="c1"># Drop rows where 'YearsCode' is NaN</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">])</span>
+    
+    <span class="c1"># Define bins for 'YearsCode'</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    
+    <span class="c1"># Bin the 'YearsCode' values</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'YearsCodeBin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate mean salary by experience bin</span>
+    <span class="n">mean_salary_by_experience</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'YearsCodeBin'</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">'ConvertedCompYearly'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    
+    <span class="c1"># Convert 'YearsCodeBin' to string for plotting</span>
+    <span class="n">mean_salary_by_experience</span><span class="p">[</span><span class="s1">'YearsCodeBin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_salary_by_experience</span><span class="p">[</span><span class="s1">'YearsCodeBin'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">mean_salary_by_experience</span>
 
-<span class="c1"># Bin the YearsCode into categories</span>
-<span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">df_experience_salary</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">df_experience_salary</span><span class="p">[</span><span class="s1">'YearsCodeBin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df_experience_salary</span><span class="p">[</span><span class="s1">'YearsCode'</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">plot_salary_by_experience</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Plot the average salary by coding experience level.</span>
 
-<span class="c1"># Calculate mean salary for each bin</span>
-<span class="n">mean_salary_by_experience</span> <span class="o">=</span> <span class="n">df_experience_salary</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'YearsCodeBin'</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">'ConvertedCompYearly'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (DataFrame): The DataFrame containing binned experience years and mean salaries.</span>
 
+<span class="sd">    Returns:</span>
+<span class="sd">    None</span>
+<span class="sd">    """</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'YearsCodeBin'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'ConvertedCompYearly'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Average Salary by Coding Experience Level'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Years of Coding Experience (Binned)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Average Annual Salary (USD)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1"># Ensure that 'YearsCodeBin' is treated as a categorical variable for proper plotting</span>
-<span class="n">mean_salary_by_experience</span><span class="p">[</span><span class="s1">'YearsCodeBin'</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_salary_by_experience</span><span class="p">[</span><span class="s1">'YearsCodeBin'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="c1"># Preprocess the data</span>
+<span class="n">df_experience_salary</span> <span class="o">=</span> <span class="n">preprocess_experience_salary_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
-<span class="c1"># Create a line plot to show the trend</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">mean_salary_by_experience</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'YearsCodeBin'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'ConvertedCompYearly'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Average Salary by Coding Experience Level'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Years of Coding Experience (Binned)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Average Annual Salary (USD)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Plot the results</span>
+<span class="n">plot_salary_by_experience</span><span class="p">(</span><span class="n">df_experience_salary</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7875,24 +8004,32 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [89]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Filter the column related to job roles</span>
-<span class="n">df_roles</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'DevType'</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_common_job_roles</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Plot the most common job roles from the survey data.</span>
 
-<span class="c1"># Split multiple roles and count frequency</span>
-<span class="n">df_roles</span> <span class="o">=</span> <span class="n">df_roles</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
-<span class="n">role_counts</span> <span class="o">=</span> <span class="n">df_roles</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">role_counts</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'JobRole'</span><span class="p">,</span> <span class="s1">'NumberOfDevelopers'</span><span class="p">]</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (DataFrame): The original DataFrame containing the survey data.</span>
 
-<span class="c1"># Create a bar plot for the most common job roles without palette</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">role_counts</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'NumberOfDevelopers'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'JobRole'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Most Common Job Roles'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Number of Developers'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Job Role'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    None</span>
+<span class="sd">    """</span>
+    <span class="n">df_roles</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'DevType'</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">df_roles</span> <span class="o">=</span> <span class="n">df_roles</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+    <span class="n">role_counts</span> <span class="o">=</span> <span class="n">df_roles</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">role_counts</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'JobRole'</span><span class="p">,</span> <span class="s1">'NumberOfDevelopers'</span><span class="p">]</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">role_counts</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'NumberOfDevelopers'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'JobRole'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Most Common Job Roles'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Number of Developers'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Job Role'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_common_job_roles</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
