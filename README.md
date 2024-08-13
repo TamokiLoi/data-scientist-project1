@@ -20,20 +20,20 @@ You will need to download Stack Overflow’s 2023 Developer Survey data. You can
 
 Need 2 file csv are: `survey_results_public.csv` & `survey_results_schema.csv`
 
-## Project Motivation
+## Project Motivation <a name="motivation"></a>
 This is an Udacity Nanodegree project. The motivation behind this project was to analyze the Stack Overflow Developer Survey 2023 data to uncover insights such as:
 
     - Question 1: What is the distribution of salaries among different job roles?
     - Question 2: How does the experience level (YearsCode) relate to salary?
     - Question 3: What are the most common job roles and how many developers report each role?
 
-## File Description
+## File Description <a name="files"></a>
     - analysis.ipynb: Jupyter notebook containing the data analysis and visualizations.
     - analysis.html: File html export from `analysis.ipynb`.
     - survey_results_public.csv: Stack Overflow's 2023 Annual Developer Survey data.
     - survey_results_schema.csv: Schema describing the columns in the Stack Overflow 2023 Annual Developer Survey data.
 
-## Results
+## Results <a name="results"></a>
 The main findings from the analysis include:
 
     - Most Common Job Roles: Insights into the distribution and average salaries across different developer roles.
@@ -42,5 +42,5 @@ The main findings from the analysis include:
 
 For a detailed explanation of the results and visualizations, please refer to the blog post available (TO-DO)
 
-## Licensing, Authors, and Acknowledgements
+## Licensing, Authors, and Acknowledgements <a name="licensing"></a>
 Data for this project is sourced from Stack Overflow’s 2023 Developer Survey. Credit goes to Stack Overflow for providing the data.
